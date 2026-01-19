@@ -1299,7 +1299,7 @@ for the interactive mode."
            tuareg-font-lock-keywords-1
            tuareg-font-lock-keywords-2)
           nil nil
-          ,tuareg-font-lock-syntax nil
+          ,tuareg-font-lock-syntax
           (font-lock-syntactic-face-function
            . tuareg-font-lock-syntactic-face-function)))
   ;; (push 'smie-backward-sexp-command font-lock-extend-region-functions)
