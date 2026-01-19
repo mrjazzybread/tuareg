@@ -857,11 +857,14 @@ delimiting the region of interest. "
   (if (nth 3 state)
       'font-lock-string-face
     (let ((start (nth 8 state)))
-      (if (and (> (point-max) (+ start 2))
-               (eq (char-after (+ start 2)) ?*)
-               (not (eq (char-after (+ start 3)) ?*)))
-          ;; This is a documentation comment
-          (tuareg-fontify-doc-comment state)
+      (if (> (point-max) (+ start 2))
+          (cond ((and (eq (char-after (+ start 2)) ?*)
+                      (not (eq (char-after (+ start 3)) ?*)))
+                 ;; This is a documentation comment
+                 (tuareg-fontify-doc-comment state))
+                ((not (eq (char-after (+ start 2)) ?@))
+                 ;; If this is a Gospel comment, regular font locking is applied.
+                 'font-lock-comment-face))
         'font-lock-comment-face))))
 
 ;; Initially empty, set in `tuareg--install-font-lock-1'
