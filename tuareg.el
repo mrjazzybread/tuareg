@@ -902,6 +902,8 @@ for the interactive mode."
   (let* ((id tuareg--id-re)
          (lid tuareg--lid-re)
          (uid tuareg--uid-re)
+         (spec-begin "(\\*@ ")
+         (spec-end " \\*)")
          (attr-id1 "\\<[[:alpha:]_][[:alpha:]0-9_']*\\>")
          (attr-id (concat attr-id1 "\\(?:\\." attr-id1 "\\)*"))
          (maybe-infix-extension (concat "\\(?:%" attr-id "\\)?")); at most 1
@@ -972,6 +974,11 @@ for the interactive mode."
          (common-keywords
           `(("^#[0-9]+ *\\(?:\"[^\"]+\"\\)?"
              0 'tuareg-font-lock-line-number-face t)
+            ;; model annotations
+            (,(concat spec-begin "?\\(mutable\\) \\(model\\) : \\(.*\\)" spec-end)
+             (1 'font-lock-keyword-face)
+             (2 'font-lock-keyword-face)
+             (3 'font-lock-type-face))
             ;; cppo
             (,(concat "^ *#"
                       (regexp-opt '("define" "undef" "if" "ifdef" "ifndef"
