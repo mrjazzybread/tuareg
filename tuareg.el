@@ -1538,7 +1538,8 @@ Run only once."
   '("module" "class" "functor" "object" "type" "val" "inherit"
     "include" "virtual" "constraint" "exception" "external" "open"
     "method" "and" "initializer" "to" "downto" "do" "done" "else"
-    "begin" "end" "let" "in" "then" "with"))
+    "begin" "end" "let" "in" "then" "with" "ensures" "requires"
+    "modifies" "consumes" "produces" "preserves" "model" "checks"))
 
 (defun tuareg--electric-indent-predicate (char)
   "Check whether we should auto-indent.
