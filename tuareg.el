@@ -1165,9 +1165,9 @@ for the interactive mode."
         )))
     (setq
      tuareg-font-lock-keywords-1-extra
-     `((,(regexp-opt '("true" "false" "__LOC__" "__FILE__" "__LINE__"
-                       "__MODULE__" "__POS__" "__LOC_OF__" "__LINE_OF__"
-                       "__POS_OF__")
+     `((,(regexp-opt '("true" "false" "True" "False" "__LOC__"
+                       "__FILE__" "__LINE__" "__MODULE__" "__POS__"
+                       "__LOC_OF__" "__LINE_OF__" "__POS_OF__")
                      'symbols)
         (0 'font-lock-constant-face))
        (,(let ((kwd '("as" "do" "done" "downto" "else" "for" "if"
