@@ -976,8 +976,7 @@ for the interactive mode."
              0 'tuareg-font-lock-line-number-face t)
             ;; model annotations
             (,(concat spec-begin "\\(?1:mutable\\)? *\\(?1:model\\) *:\\(.*\\)" spec-end)
-             (1 'font-lock-keyword-face)
-             (2 'font-lock-ignore))
+             (1 'font-lock-keyword-face))
             ;; specifications
             (,(regexp-opt '("ensures" "requires" "modifies" "preserves" "checks" "produces" "consumes"))
              0 'font-lock-keyword-face)
